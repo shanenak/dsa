@@ -32,23 +32,41 @@ import sys
 #     plusMinus(arr)
 
 
-def miniMaxSum(arr):
-    # Write your code here
-    arr.sort()
-    print(sum(arr[:4]), sum(arr[1:]))
+# def miniMaxSum(arr):
+#     # Write your code here
+#     arr.sort()
+#     print(sum(arr[:4]), sum(arr[1:]))
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    arr = list(map(int, input().rstrip().split()))
+#     arr = list(map(int, input().rstrip().split()))
 
-    miniMaxSum(arr)
+#     miniMaxSum(arr)
 
 
-def timeConversion(s):
-    # Write your code here
-    addHours = 12 if s[-2:] == 'PM' else 0
-    newHour = str(int(s[:2])+addHours) if (int(s[:2])+addHours) != 24 else '00'
-    newHour = '0'+newHour if len(newHour) < 2 else newHour
-    print(newHour+s[2:-2])
-    return newHour+s[2:-2]
+# def timeConversion(s):
+#     # Write your code here
+#     addHours = 12 if s[-2:] == 'PM' else 0
+#     newHour = str(int(s[:2])+addHours) if (int(s[:2])+addHours) != 24 else '00'
+#     newHour = '0'+newHour if len(newHour) < 2 else newHour
+#     print(newHour+s[2:-2])
+#     return newHour+s[2:-2]
+
+# class Solution:
+#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+#         if len(candidates) == 0 or min(candidates) > target:
+#             return []
+#         sortCand = sorted(candidates)
+#         total = []
+#         i = 0
+#         while len(candidates) > i and sortCand[i] <= target:
+#             if sortCand[i] == target:
+#                 total.append([target])
+#             else:
+#                 res = self.combinationSum(sortCand, target-sortCand[i])
+#                 for j in res:
+#                     if len(res) > 0 and sorted([sortCand[i]]+j) not in total:
+#                         total.append(sorted([sortCand[i]]+j))
+#             i += 1
+#         return total
