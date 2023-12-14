@@ -70,3 +70,27 @@ import sys
 #                         total.append(sorted([sortCand[i]]+j))
 #             i += 1
 #         return total
+
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        count = 0
+        for row in range(len(grid)):
+            for col in range(len(grid[0])):
+                if grid[row][col] == '1':
+                    count += 1
+                    self.zeroIsland(grid, row, col)
+
+        return count
+
+    def zeroIsland(self, grid: List[List[str]], row: int, col: int):
+        num_rows = len(grid)
+        num_cols = len(grid[0])
+        if (row < 0 or col < 0 or row >= num_rows or col >= num_cols or grid[row][col] != '1'):
+            return
+        else:
+            grid[row][col] = '#'
+            self.zeroIsland(grid, row-1, col)
+            self.zeroIsland(grid, row+1, col)
+            self.zeroIsland(grid, row, col-1)
+            self.zeroIsland(grid, row, col+1)
