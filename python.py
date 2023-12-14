@@ -43,3 +43,12 @@ if __name__ == '__main__':
     arr = list(map(int, input().rstrip().split()))
 
     miniMaxSum(arr)
+
+
+def timeConversion(s):
+    # Write your code here
+    addHours = 12 if s[-2:] == 'PM' else 0
+    newHour = str(int(s[:2])+addHours) if (int(s[:2])+addHours) != 24 else '00'
+    newHour = '0'+newHour if len(newHour) < 2 else newHour
+    print(newHour+s[2:-2])
+    return newHour+s[2:-2]
